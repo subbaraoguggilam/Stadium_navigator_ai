@@ -9,8 +9,21 @@
   "concourse_n2": 2,
   "concourse_w1": 1,
   "concourse_s1": 5,
+  "section_101": 3,
+  "section_112": 2,
+  "section_128": 1,
+  "section_215": 2,
+  "section_230": 1,
+  "section_301": 2,
   "amenity_restroom_e": 2,
   "amenity_restroom_n": 4,
   "amenity_food_e": 3,
-  "amenity_food_n": 2
+  "amenity_food_n": 2,
+  "amenity_medical": 1,
+  "amenity_prayer": 1,
+  "amenity_merch": 2,
+  "amenity_atm": 3,
+  "transport_metro": 2,
+  "transport_bus": 1,
+  "transport_taxi": 1
 }

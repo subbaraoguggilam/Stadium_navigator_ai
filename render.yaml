@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: stadium-navigator-ai
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: FLASK_DEBUG
+        value: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: STADIUM_ASSISTANT_MODEL
+        value: claude-sonnet-4-5

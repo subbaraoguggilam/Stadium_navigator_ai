@@ -9,21 +9,40 @@ on:
 jobs:
   lint-and-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+      fail-fast: false
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: ${{ matrix.python-version }}
+          cache: pip
 
       - name: Install dependencies
         run: |
+          pip install --upgrade pip
           pip install -r requirements.txt
-          pip install flake8
+          pip install flake8 pip-audit
+
+      - name: Security audit (pip-audit)
+        run: pip-audit --requirement requirements.txt --ignore-vuln GHSA-placeholder || true
 
       - name: Lint (flake8)
-        run: flake8 . --max-line-length=110 --extend-exclude=venv,.venv
+        run: flake8 . --max-line-length=110 --extend-exclude=venv,.venv,__pycache__
 
-      - name: Run tests
-        run: pytest tests/ -v
+      - name: Run tests with coverage
+        run: pytest tests/ -v --tb=short -q --cov=core --cov=app --cov-report=term-missing
+        env:
+          ANTHROPIC_API_KEY: ""
+
+      - name: Upload coverage report
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: .coverage
