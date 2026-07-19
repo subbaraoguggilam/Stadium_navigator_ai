@@ -1,0 +1,16 @@
+{
+  "gate_a": 2,
+  "gate_b": 4,
+  "gate_c": 1,
+  "gate_d": 5,
+  "concourse_e1": 3,
+  "concourse_e2": 2,
+  "concourse_n1": 4,
+  "concourse_n2": 2,
+  "concourse_w1": 1,
+  "concourse_s1": 5,
+  "amenity_restroom_e": 2,
+  "amenity_restroom_n": 4,
+  "amenity_food_e": 3,
+  "amenity_food_n": 2
+}

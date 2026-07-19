@@ -1,0 +1,69 @@
+{
+  "venue_name": "Liberty World Stadium (Sample Venue - FIFA World Cup 2026)",
+  "nodes": {
+    "gate_a": {"label": "Gate A (East Plaza)", "type": "gate", "accessible": true, "level": "ground"},
+    "gate_b": {"label": "Gate B (North Plaza)", "type": "gate", "accessible": true, "level": "ground"},
+    "gate_c": {"label": "Gate C (West Plaza)", "type": "gate", "accessible": true, "level": "ground"},
+    "gate_d": {"label": "Gate D (South Plaza)", "type": "gate", "accessible": false, "level": "ground"},
+
+    "concourse_e1": {"label": "East Concourse 1", "type": "concourse", "accessible": true, "level": "ground"},
+    "concourse_e2": {"label": "East Concourse 2", "type": "concourse", "accessible": true, "level": "upper"},
+    "concourse_n1": {"label": "North Concourse 1", "type": "concourse", "accessible": true, "level": "ground"},
+    "concourse_n2": {"label": "North Concourse 2", "type": "concourse", "accessible": true, "level": "upper"},
+    "concourse_w1": {"label": "West Concourse 1", "type": "concourse", "accessible": true, "level": "ground"},
+    "concourse_s1": {"label": "South Concourse 1", "type": "concourse", "accessible": false, "level": "ground"},
+
+    "section_101": {"label": "Section 101", "type": "section", "accessible": true, "level": "ground"},
+    "section_112": {"label": "Section 112", "type": "section", "accessible": true, "level": "ground"},
+    "section_128": {"label": "Section 128", "type": "section", "accessible": false, "level": "ground"},
+    "section_215": {"label": "Section 215", "type": "section", "accessible": true, "level": "upper"},
+    "section_230": {"label": "Section 230", "type": "section", "accessible": true, "level": "upper"},
+    "section_301": {"label": "Section 301 (Family Zone)", "type": "section", "accessible": true, "level": "upper"},
+
+    "amenity_restroom_e": {"label": "Restroom - East (Accessible)", "type": "restroom", "accessible": true, "level": "ground"},
+    "amenity_restroom_n": {"label": "Restroom - North", "type": "restroom", "accessible": true, "level": "ground"},
+    "amenity_food_e": {"label": "Food Court - East (Halal/Vegetarian options)", "type": "food", "accessible": true, "level": "ground"},
+    "amenity_food_n": {"label": "Food Court - North", "type": "food", "accessible": true, "level": "upper"},
+    "amenity_medical": {"label": "Medical & First Aid Station", "type": "medical", "accessible": true, "level": "ground"},
+    "amenity_prayer": {"label": "Multi-faith Prayer Room", "type": "prayer", "accessible": true, "level": "ground"},
+    "amenity_merch": {"label": "Official Merchandise Store", "type": "shop", "accessible": true, "level": "ground"},
+    "amenity_atm": {"label": "ATM & Guest Services Desk", "type": "service", "accessible": true, "level": "ground"},
+
+    "transport_metro": {"label": "Metro Station Exit", "type": "transport", "accessible": true, "level": "ground"},
+    "transport_bus": {"label": "Shuttle Bus Bay", "type": "transport", "accessible": true, "level": "ground"},
+    "transport_taxi": {"label": "Taxi / Rideshare Pickup", "type": "transport", "accessible": true, "level": "ground"}
+  },
+  "edges": [
+    {"from": "gate_a", "to": "concourse_e1", "distance": 60},
+    {"from": "gate_b", "to": "concourse_n1", "distance": 55},
+    {"from": "gate_c", "to": "concourse_w1", "distance": 65},
+    {"from": "gate_d", "to": "concourse_s1", "distance": 50},
+
+    {"from": "concourse_e1", "to": "concourse_e2", "distance": 40},
+    {"from": "concourse_n1", "to": "concourse_n2", "distance": 40},
+    {"from": "concourse_e1", "to": "concourse_n1", "distance": 90},
+    {"from": "concourse_n1", "to": "concourse_w1", "distance": 95},
+    {"from": "concourse_w1", "to": "concourse_s1", "distance": 100},
+    {"from": "concourse_s1", "to": "concourse_e1", "distance": 100},
+
+    {"from": "concourse_e1", "to": "section_101", "distance": 30},
+    {"from": "concourse_e1", "to": "section_112", "distance": 45},
+    {"from": "concourse_w1", "to": "section_128", "distance": 35},
+    {"from": "concourse_e2", "to": "section_215", "distance": 35},
+    {"from": "concourse_n2", "to": "section_230", "distance": 30},
+    {"from": "concourse_n2", "to": "section_301", "distance": 50},
+
+    {"from": "concourse_e1", "to": "amenity_restroom_e", "distance": 20},
+    {"from": "concourse_n1", "to": "amenity_restroom_n", "distance": 25},
+    {"from": "concourse_e1", "to": "amenity_food_e", "distance": 25},
+    {"from": "concourse_n2", "to": "amenity_food_n", "distance": 20},
+    {"from": "concourse_e1", "to": "amenity_medical", "distance": 30},
+    {"from": "concourse_n1", "to": "amenity_prayer", "distance": 35},
+    {"from": "concourse_w1", "to": "amenity_merch", "distance": 20},
+    {"from": "concourse_s1", "to": "amenity_atm", "distance": 20},
+
+    {"from": "gate_a", "to": "transport_metro", "distance": 80},
+    {"from": "gate_b", "to": "transport_bus", "distance": 70},
+    {"from": "gate_c", "to": "transport_taxi", "distance": 75}
+  ]
+}

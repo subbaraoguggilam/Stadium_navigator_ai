@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stadium Navigator AI · {{ venue_name }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">⚑</span>
+      <div>
+        <h1>Stadium Navigator AI</h1>
+        <p class="venue-name">{{ venue_name }}</p>
+      </div>
+    </div>
+    <div class="location-picker">
+      <label for="current-location">I am at</label>
+      <select id="current-location" aria-label="Your current location in the stadium"></select>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="map-panel" aria-label="Stadium map">
+      <svg id="stadium-map" viewBox="0 0 640 640" role="img" aria-label="Stadium wayfinding map"></svg>
+      <p class="crowd-legend">
+        <span class="dot dot-quiet"></span>Quiet
+        <span class="dot dot-moderate"></span>Moderate
+        <span class="dot dot-busy"></span>Busy
+      </p>
+    </section>
+
+    <section class="chat-panel" aria-label="Assistant chat">
+      <div id="chat-log" role="log" aria-live="polite"></div>
+      <form id="chat-form" autocomplete="off">
+        <label class="sr-only" for="chat-input">Ask the stadium assistant</label>
+        <input
+          id="chat-input"
+          type="text"
+          placeholder="e.g. Take me to Section 215, or nearest accessible restroom"
+          maxlength="500"
+        >
+        <button type="submit">Ask</button>
+      </form>
+      <div class="quick-actions" aria-label="Quick suggestions">
+        <button type="button" class="chip" data-msg="Take me to Section 215">Section 215</button>
+        <button type="button" class="chip" data-msg="Nearest accessible restroom">Accessible restroom</button>
+        <button type="button" class="chip" data-msg="Where can I get food?">Food nearby</button>
+        <button type="button" class="chip" data-msg="Fastest way to the metro after the match">Metro exit</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footnote">
+    Built for the FIFA World Cup 2026 GenAI stadium-ops challenge · Fan Navigation &amp; Wayfinding vertical
+  </footer>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
